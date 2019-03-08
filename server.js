@@ -26,12 +26,12 @@ app.set(`view engine`, `handlebars`);
 app.use(express.static(`public`));
 // Routes
 // =============================================================
-// require(`./routes/api-routes`)(app);
+require(`./routes/api-routes`)(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({ force: true }).then(function() {
-  app.listen(PORT, function() {
-    console.log(`App listening on PORT` + PORT);
-  });
+// db.sequelize.sync({ force: true }).then(function() {
+app.listen(PORT, function() {
+ console.log(`App listening on PORT` + PORT);
 });
+// });
