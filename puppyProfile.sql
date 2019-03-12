@@ -1,9 +1,7 @@
 -- Schema.sql for SQL database/table
 DROP DATABASE IF EXISTS puppy_info;
-
 CREATE DATABASE puppy_info;
 USE puppy_info;
-
 -- Create a new table with left-right column titles
 CREATE TABLE puppy_info (
   id INT(15) NOT NULL AUTO_INCREMENT PRIMARY KEY,

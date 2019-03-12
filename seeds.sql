@@ -16,4 +16,3 @@ VALUES
     ('Kristen', 'Weiss','KrisWeiss101@gmail.com','Oakhurst Dog Park','Spot','Female','Parson Russell Terrier','Friendly, Clever, Athletic',7,17,'https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12211654/Parson-Russell-Terrier-on-White-05.jpg'),
     ('Mae', 'England','EnglandSoccerMae15@msn.com','NewTown Dog Park','Otis','Male','Corgi','Affectionate, Smart, Alert',5,30,'https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12225906/Pembroke-Welsh-Corgi-On-White-05.jpg'),
     ('Kyan', 'Wall','moonlapse@outlook.com','Ronald Reagan Park','Max','Male','Pug','Charming, Mischievous, Loving',3,14,'https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12225349/Pug-On-White-03.jpg');
-
