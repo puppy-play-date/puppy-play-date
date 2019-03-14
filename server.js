@@ -1,14 +1,20 @@
-const express = require(`express`); 
+const express = require(`express`);
 const bodyParser = require(`body-parser`);
-const methodOverride = require(`method-override`); 
-const handlebars = require(`express-handlebars`); 
+const methodOverride = require(`method-override`);
+const handlebars = require(`express-handlebars`);
 const path = require(`path`);
+<<<<<<< HEAD
 const app = express(); 
 const sequelize = require(`sequelize`);
 const morgan = require(`morgan`); 
 const cookieParser = require('cookie-parser');
 // const session = require(`express-session`);
 const PORT = process.env.PORT || 8080; 
+=======
+const app = express();
+const sequelize = require('sequelize');
+const PORT = process.env.PORT || 8080;
+>>>>>>> master
 
 // Get our models
 const db = require(path.join(__dirname, `models`));
@@ -21,6 +27,7 @@ const db = require(path.join(__dirname, `models`));
 // app.use("/public", express.static(path.join(__dirname, "public")));
 
 // Set up Express to handle parsing data
+<<<<<<< HEAD
 app.use(bodyParser.json()); 
 app.use(bodyParser.text()); 
 app.use(bodyParser.urlencoded({ extended: true}));
@@ -43,6 +50,18 @@ app.use(morgan());
 // Set Handlebars // 
 const routes = require('./routes/puppsController');
 app.use('/', routes);
+=======
+app.use(bodyParser.json());
+app.use(bodyParser.text());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride(`method`));
+
+// Set Handlebars
+const routes = require('./routes/puppsController');
+const apiRoute = require('./routes/api-routes')(app);
+
+app.use(routes);
+>>>>>>> master
 
 const apiRoutes = require('./routes/api-routes');
 app.use('/api', apiRoutes);
@@ -50,16 +69,21 @@ app.engine(`handlebars`, handlebars({
   extname: `handlebars`,
   defaultLayout: `main`,
   layoutsDir: __dirname + `/views/layouts/`,
-  partialsDir: __dirname + `/views/partials/`
+  partialsDir: __dirname + `/views/partials/`,
 }));
-app.set(`view engine`, `handlebars`); 
+app.set(`view engine`, `handlebars`);
 // Static directory
 app.use(express.static(`public`));
 // Set Routes directory
-const directory_routes = path.join(__dirname, `routes`);
+const directoryRoutes = path.join(__dirname, `routes`);
 // Listen for connections on the port
 // db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log(`App listening on PORT` + PORT);
+<<<<<<< HEAD
   })
 // });
+=======
+  });
+});
+>>>>>>> master

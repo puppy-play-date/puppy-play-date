@@ -1,12 +1,15 @@
 const express = require(`express`);
 const router = express.Router();
 const pupps = require(`../models/pupps.js`);
+<<<<<<< HEAD
 const userProf = require("../models/user.js");
 const jwt = require('jsonwebtoken');
 // get routes -> index.handlebars
 // router.get(`/`, function(req, res) {
 //   res.render(`index`);
 // });
+=======
+>>>>>>> master
 
 let decoded;
 
