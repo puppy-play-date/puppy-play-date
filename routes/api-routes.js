@@ -64,13 +64,20 @@ router.post('/signup', function(req, res) {
             });
         }
         if (data.length === 0) {
-            const user = { email, password };
-            connection.query('INSERT INTO users SET ?', user, function(error, results) {
+            const user1 = { email, password };
+            connection.query('INSERT INTO users SET ?', user1, function(error, results) {
                 if (error) {
                     return res.status(500).json({
                         message: "Not able to create user"
                     });
                 }
+            });
+                connection.query('SELECT * FROM users where email = ?', [email], function(err, data) {
+                    if (err) {
+                        return res.status(500).json({
+                            message: "Internal server error"
+                        });
+                    }
                 const token = jwt.sign({ 
                     // exp: Math.floor(Date.now() / 1000) + (60 * 60),
                     email: data[0].email, 
@@ -88,7 +95,7 @@ router.post('/signup', function(req, res) {
                 return res.cookie("token", token).json({
                     message: "User successfully created"
                 });
-            });
+            });          
         } else {
             res.status(403).json({
                 message: "User already exists"
