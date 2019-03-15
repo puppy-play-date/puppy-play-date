@@ -1,18 +1,13 @@
 const express = require(`express`);
+// eslint-disable-next-line new-cap
 const router = express.Router();
-const pupps = require(`../models/pupps.js`);
 const userProf = require('../models/user.js');
 const jwt = require('jsonwebtoken');
-// get routes -> index.handlebars
-// router.get(`/`, function(req, res) {
-//   res.render(`index`);
-// });
 
 let decoded;
 
 function privateRoute(req, res, next) {
   let token;
-  // let decoded;
   if (req.cookies.token) {
     token = req.cookies.token;
     decoded = jwt.verify(token, 'ilovepups');

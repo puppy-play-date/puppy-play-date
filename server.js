@@ -14,18 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride(`method`));
 app.use(cookieParser());
-// app.use(session({
-//   secret: 'ILOVECATS',  //process.env.SECRET
-//   cookie: { maxAge: 6000000, secure: false },
-//   resave: false,
-//   saveUninitialized: true
-// }));
 app.use(morgan());
-
-// app.use(express.urlencoded({
-//   extended: true
-// }));
-// app.use(express.json()); //24:44 Esterling uses app.use(express)
 
 // Set Handlebars
 const routes = require('./routes/puppsController');

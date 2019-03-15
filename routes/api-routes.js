@@ -1,9 +1,10 @@
 // Requiring our models
-const db = require(`../models`);
 const express = require(`express`);
+// eslint-disable-next-line new-cap
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+
 const saltRounds = 10;
 const salt = bcrypt.genSaltSync(saltRounds);
 const connection = require('../connection');
