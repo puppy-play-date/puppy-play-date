@@ -84,6 +84,33 @@ router.get('/search', function(req, res) {
     res.render('search', hbsObject);
   });
 });
+//   console.log("checking for match...");
+//   db.search.findOne({ where: { user_id: req.body.userId, match: req.body.matchId } })
+//   .then(alreadyMatched => {
+//     if (!alreadyMatched) {
+//       db.MatchList.create({ 
+//         user_id: req.body.userId,
+//         match: req.body.matchId
+//       })
+//         .then(() => { db.MatchList.findOne({ where: { user_id: req.body.matchId, match: req.body.userId } })
+//           .then(match => {
+//             console.log("match found");
+//             if (match) gotMatch(req.body.userId, req.body.matchId);
+//             res.json(match ? true : false);
+//         });
+//       });
+//     }
+//     else {
+//       db.MatchList.findOne({ where: { user_id: req.body.matchId, match: req.body.userId } })
+//           .then(match => {
+//             console.log("match found");
+//             if (match) gotMatch(req.body.userId, req.body.matchId);
+//             res.json(match ? true : false);
+//         });
+//     }
+//   });
+// });
+
 
 router.get('/signup', function(req, res) {
   res.render('signup');

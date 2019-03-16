@@ -1,77 +1,21 @@
 // module.exports = function(sequelize, DataTypes) {
-//   const pupps = sequelize.define('pupps', {
-//     id: {
-//       type: DataTypes.INTEGER(255),
+//   var MatchList = sequelize.define("MatchList", {
+//     id: {type: DataTypes.INTEGER,
 //       allowNull: false,
 //       autoIncrement: true,
-//       primaryKey: true,
+//       primaryKey:true
 //     },
-//     first_name: {
-//       type: DataTypes.STRING(255),
-//       allowNull: false,
-//       validate: {
-//         notEmpty: {
-//           args: true,
-//           msg: `Please give the user a name.`,
-//         },
-//       },
+//     user_id: {type: DataTypes.INTEGER,
+//         allowNull: false,
+//         REFERENCES: {model: "user",
+//                         key: "id"}
 //     },
-//     last_name: {
-//       type: DataTypes.STRING(255),
-//       allowNull: false,
-//       validate: {
-//         notEmpty: {
-//           args: true,
-//           msg: `Please give the user a lastName.`,
-//         },
-//       },
+//     match: {type: DataTypes.STRING,
+//         allowNull: false
 //     },
-//     email: {
-//       type: DataTypes.STRING(255),
-//       allowNull: false,
-//       validate: {
-//         notEmpty: {
-//           args: true,
-//           msg: `Please enter a valid email.`,
-//         },
-//       },
-//     },
-//     puppy_name: {
-//       type: DataTypes.STRING(255),
-//       allowNull: false,
-//     },
-//     puppy_gender: {
-//       type: DataTypes.STRING(255),
-//       allowNull: false,
-//     },
-//     puppy_breed: {
-//       type: DataTypes.STRING(255),
-//       allowNull: false,
-//     },
-//     address: {
-//       type: DataTypes.STRING(255),
-//       allowNull: false,
-//     },
-//     zipcode: {
-//       type: DataTypes.INTEGER(255),
-//       allowNull: false,
-//     },
-//     puppy_personality: {
-//       type: DataTypes.STRING(255),
-//       allowNull: false,
-//     },
-//     puppy_age: {
-//       type: DataTypes.INTEGER(255),
-//       allowNull: false,
-//     },
-//     puppy_weight: {
-//       type: DataTypes.INTEGER(255),
-//       allowNull: true,
-//     },
-//     img_url: {
-//       type: DataTypes.STRING(255),
-//       allowNull: true,
-//     },
+//     createdAt: DataTypes.DATE,
+//     updatedAt: DataTypes.DATE,
+    
 //   });
-//   return pupps;
+//   return MatchList;
 // };

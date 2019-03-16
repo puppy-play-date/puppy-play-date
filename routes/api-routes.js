@@ -7,6 +7,10 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const salt = bcrypt.genSaltSync(saltRounds);
 const connection = require('../connection');
+const googleMapsClient = require('@google/maps').createClient({
+    key: 'AIzaSyCdNfDcRKIURN9N8xgVrV1P8UbbC0wpohk',
+    Promise: Promise
+  });
 
 router.post('/login', function(req, res) {
     const email = req.body.email;
@@ -133,4 +137,40 @@ router.get('/signout', function(req, res) {
     })
 })
 
-  module.exports = router;
+router.post('/search', (req, res)=>{
+    let geoLocat, address = req.body.zipCode
+    googleMapsClient.geocode({address: address}).asPromise()
+        .then(response => {
+            console.log(response.json.results[0].geometry.location);
+            geocode = response.json.results[0].geometry.location;
+            console.log('\n\n');
+            console.log(geoLocat);
+        }).then(()=>{
+            db.User.findOne({where: {id: req.body.id}
+            })
+            .then(dbuser => {
+                dbuser.update({
+                    firstName: req.body.firstName,
+                    lastName: req.body.lastName,
+                    zipCode: req.body.zipCode,
+                    puppyName: req.body.puppyName,
+                    puppyGender: req.body.puppyGender,
+                    puppyBreed: req.body.puppyBreed,
+                    puppyPersonality: req.body.puppyPersonality,
+                    puppyAge: req.body.puppyAge,
+                    puppyWeight: req.body.puppyWeight,
+                    imgUrl: req.body.imgUrl
+                    }).then(() => {
+                        res.json(dbuser);
+                    })
+                })      
+            })            
+        })
+        .catch((err)=>{
+            console.log(err)
+        }); 
+});
+
+
+
+module.exports = router;
